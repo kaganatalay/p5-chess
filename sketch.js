@@ -20,8 +20,19 @@ function mousePressed() {
   let coordinate = createVector();
   coordinate.x =  Math.trunc(mouseX / board.cell_size);
   coordinate.y = Math.trunc(mouseY / board.cell_size);
+
+  if(board.selected == null) {
+    let piece = board.getPieceFromCoordinate(coordinate.x, coordinate.y);
+    board.selected = piece;
+  } else {
+    for(let move of board.selected.getPossibleMoves()) {
+      if(coordinate.x == move.x && coordinate.y == move.y) {
+        board.selected.coordinate = move.copy();
+      }
+    }
+    board.selected = null;
+  }
   
-  let piece = board.getPieceFromCoordinate(coordinate.x, coordinate.y);
   console.log(piece);
 }
  

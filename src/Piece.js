@@ -21,4 +21,13 @@ class Piece {
         this.position.y = this.coordinate.y * board.cell_size + board.cell_size/2;
     }
 
+    getPossibleMoves() {
+        let moves = [];
+        if(board.getPieceFromCoordinate(this.coordinate.x, this.coordinate.y-1) == null) {
+            moves.push(createVector(this.coordinate.x, this.coordinate.y-1));
+        }
+        
+        return moves;
+    }
+
 }

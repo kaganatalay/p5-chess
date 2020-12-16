@@ -2,16 +2,7 @@ class Board {
     constructor() {
         this.cell_size = width / 8;
         this.pieces = [];
-        this.position = [
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-        ];
+        this.selected = null;
 
         // White
         for(let i = 0; i < 8; i++) {
@@ -66,6 +57,18 @@ class Board {
                 rect(j * this.cell_size, i * this.cell_size, this.cell_size, this.cell_size);
                 pop();
             }
+        }
+
+        if(this.selected != null) {
+            let moves = this.selected.getPossibleMoves();
+            for(let move of moves) {
+                push();
+                noStroke();
+                fill(0, 150);
+                ellipse(move.x * this.cell_size + this.cell_size/2, move.y * board.cell_size + this.cell_size/2, board.cell_size * 0.4);
+                pop();
+            }
+            
         }
     }
 
