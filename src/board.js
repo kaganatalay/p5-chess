@@ -75,6 +75,19 @@ class Board {
         }
     }
 
+    isCellOccupied(cx, cy) {
+        const coordinate = createVector(cx, cy);
+        let piece = null;
+
+        for(let p of this.pieces) {
+            if(p.coordinate.x == coordinate.x && p.coordinate.y == coordinate.y) {
+                piece = p;
+            }
+        }
+
+        return piece;
+    }
+
     placePiece(Name, cx, cy, type) {
         let piece = new Name(cx, cy, type);
         piece.figure = figures[piece.type][Name.name.toLowerCase()];

@@ -1,8 +1,7 @@
 let board;
 let figures = {
-  white: { },
-
-  black: { }
+  white: {},
+  black: {}
 };
 
 function setup() {

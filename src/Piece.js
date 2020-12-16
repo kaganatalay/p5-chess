@@ -1,6 +1,6 @@
 class Piece {
     constructor(cx, cy, type) {
-        this.coordinates = createVector(cx, cy);
+        this.coordinate = createVector(cx, cy);
         this.position = createVector();
 
         this.type = type;
@@ -17,8 +17,8 @@ class Piece {
     }
 
     update() {
-        this.position.x = this.coordinates.x * board.cell_size + board.cell_size/2;
-        this.position.y = this.coordinates.y * board.cell_size + board.cell_size/2;
+        this.position.x = this.coordinate.x * board.cell_size + board.cell_size/2;
+        this.position.y = this.coordinate.y * board.cell_size + board.cell_size/2;
     }
 
 }
