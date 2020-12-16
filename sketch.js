@@ -1,4 +1,10 @@
 let board;
+let figures = {
+  white: { },
+
+  black: { }
+};
+
 function setup() {
   createCanvas(800, 800); 
   imageMode(CENTER);
@@ -9,4 +15,20 @@ function draw() {
   background(51);
 
   board.start();
+}
+
+function preload() {
+  figures.white.pawn = loadImage('assets/pawn-white.png');
+  figures.white.rook = loadImage('assets/rook-white.png');
+  figures.white.knight = loadImage('assets/knight-white.png');
+  figures.white.bishop = loadImage('assets/bishop-white.png');
+  figures.white.queen = loadImage('assets/queen-white.png');
+  figures.white.king = loadImage('assets/king-white.png');
+
+  figures.black.pawn = loadImage('assets/pawn-black.png');
+  figures.black.rook = loadImage('assets/rook-black.png');
+  figures.black.knight = loadImage('assets/knight-black.png');
+  figures.black.bishop = loadImage('assets/bishop-black.png');
+  figures.black.queen = loadImage('assets/queen-black.png');
+  figures.black.king = loadImage('assets/king-black.png');
 }

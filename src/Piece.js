@@ -1,8 +1,7 @@
 class Piece {
-    constructor(cx, cy, figure) {
+    constructor(cx, cy) {
         this.coordinates = createVector(cx, cy);
         this.position = createVector();
-        this.figure = figure;
     }
 
     start() {
