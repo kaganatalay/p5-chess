@@ -27,7 +27,13 @@ function mousePressed() {
   } else {
     for(let move of board.selected.getPossibleMoves()) {
       if(coordinate.x == move.x && coordinate.y == move.y) {
-        board.selected.coordinate = move.copy();
+        let piece = board.getPieceFromCoordinate(move.x, move.y);
+        if(piece != null) {
+          const index = board.pieces.indexOf(piece);
+          board.pieces.splice(index, 1);
+        }
+         board.selected.coordinate = move.copy();
+         break;
       }
     }
     board.selected = null;

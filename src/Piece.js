@@ -38,17 +38,21 @@ class Piece {
             if(this.continuous == true) {
                 let current = this.coordinate.copy();
                 for(let i = 0; i < 8; i++) {
-                    if(board.getPieceFromCoordinate(current.x + vector.x, current.y + vector.y) == null) {
+                    let piece = board.getPieceFromCoordinate(current.x + vector.x, current.y + vector.y);
+                    if(piece == null) {
                         let move = createVector(current.x + vector.x, current.y + vector.y);
                         moves.push(move);
-    
                         current.add(vector);
+                    } else if (piece.type != board.selected.type) {
+                        let move = createVector(current.x + vector.x, current.y + vector.y);
+                        moves.push(move);
                     } else {
                         break;
                     }
                 }
             } else {
-                if(board.getPieceFromCoordinate(this.coordinate.x + vector.x, this.coordinate.y + vector.y) == null) {
+                let piece = board.getPieceFromCoordinate(this.coordinate.x + vector.x, this.coordinate.y + vector.y);
+                if(piece == null || piece.type != board.selected.type) {
                     let move = createVector(this.coordinate.x + vector.x, this.coordinate.y + vector.y);
                     moves.push(move);
                 }

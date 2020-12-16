@@ -61,15 +61,16 @@ class Board {
 
         if(this.selected != null) {
             let moves = this.selected.getPossibleMoves();
-            
-            for(let move of moves) {
-                push();
+            push();
+            for(let move of moves) {      
                 noStroke();
                 fill(0, 150);
-                ellipse(move.x * this.cell_size + this.cell_size/2, move.y * board.cell_size + this.cell_size/2, board.cell_size * 0.4);
-                pop();
+                ellipse(move.x * this.cell_size + this.cell_size/2, move.y * this.cell_size + this.cell_size/2, this.cell_size * 0.3);
             }
-            
+
+            fill(255, 255, 100);
+            rect(this.selected.coordinate.x * this.cell_size, this.selected.coordinate.y * this.cell_size, this.cell_size, this.cell_size);
+            pop();
         }
     }
 
