@@ -13,7 +13,7 @@ class Piece {
     }
 
     render() {
-        image(this.figure, this.position.x, this.position.y, board.cell_size * 0.8, board.cell_size * 0.8);
+        image(this.figure, this.position.x, this.position.y, board.cell_size * 0.9, board.cell_size * 0.9);
     }
 
     update() {

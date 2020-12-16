@@ -75,7 +75,7 @@ class Board {
         }
     }
 
-    isCellOccupied(cx, cy) {
+    getPieceFromCoordinate(cx, cy) {
         const coordinate = createVector(cx, cy);
         let piece = null;
 

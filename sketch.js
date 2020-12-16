@@ -16,6 +16,15 @@ function draw() {
   board.start();
 }
 
+function mousePressed() {
+  let coordinate = createVector();
+  coordinate.x =  Math.trunc(mouseX / board.cell_size);
+  coordinate.y = Math.trunc(mouseY / board.cell_size);
+  
+  let piece = board.getPieceFromCoordinate(coordinate.x, coordinate.y);
+  console.log(piece);
+}
+ 
 function preload() {
   figures.white.pawn   = loadImage('assets/pawn-white.png'   );
   figures.white.rook   = loadImage('assets/rook-white.png'   );
