@@ -8,5 +8,18 @@ class Knight extends Piece {
             [' ', 'O', ' '],
             [' ', ' ', ' ']
         ];
+
+        // Can not use the pattern system so parsed vector array is written manually
+        this.parsed = [
+            createVector(1, 2),
+            createVector(-1, 2),
+            createVector(1, -2),
+            createVector(-1, -2),
+
+            createVector(2, 1),
+            createVector(2, -1),
+            createVector(-2, 1),
+            createVector(-2, -1),
+        ];
     }
 }

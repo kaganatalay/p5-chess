@@ -10,6 +10,12 @@ class Piece {
 
     start() {
         if(this.parsed == null) {
+            if(this.type == 'black') {
+                let temp = this.pattern[2];
+                this.pattern.splice(2, 1);
+                this.pattern.push(this.pattern[0]);
+                this.pattern[0] = temp;
+            }
             this.parsed = this.parsePattern();
         }
 
@@ -29,10 +35,25 @@ class Piece {
     getPossibleMoves() {
         let moves = [];
         for(let vector of this.parsed) {
-            if(board.getPieceFromCoordinate(this.coordinate.x + vector.x, this.coordinate.y + vector.y) == null) {
-                let move = createVector(this.coordinate.x + vector.x, this.coordinate.y + vector.y);
-                moves.push(move);
+            if(this.continuous == true) {
+                let current = this.coordinate.copy();
+                for(let i = 0; i < 8; i++) {
+                    if(board.getPieceFromCoordinate(current.x + vector.x, current.y + vector.y) == null) {
+                        let move = createVector(current.x + vector.x, current.y + vector.y);
+                        moves.push(move);
+    
+                        current.add(vector);
+                    } else {
+                        break;
+                    }
+                }
+            } else {
+                if(board.getPieceFromCoordinate(this.coordinate.x + vector.x, this.coordinate.y + vector.y) == null) {
+                    let move = createVector(this.coordinate.x + vector.x, this.coordinate.y + vector.y);
+                    moves.push(move);
+                }
             }
+            
         }
         
         return moves;
