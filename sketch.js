@@ -33,7 +33,6 @@ function mousePressed() {
     board.selected = null;
   }
   
-  console.log(piece);
 }
  
 function preload() {
