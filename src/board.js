@@ -61,6 +61,7 @@ class Board {
 
         if(this.selected != null) {
             let moves = this.selected.getPossibleMoves();
+            
             for(let move of moves) {
                 push();
                 noStroke();

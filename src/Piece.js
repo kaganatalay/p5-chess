@@ -5,9 +5,14 @@ class Piece {
 
         this.type = type;
         this.figure = null;
+        this.parsed = null;
     }
 
     start() {
+        if(this.parsed == null) {
+            this.parsed = this.parsePattern();
+        }
+
         this.render();
         this.update();
     }
@@ -23,11 +28,31 @@ class Piece {
 
     getPossibleMoves() {
         let moves = [];
-        if(board.getPieceFromCoordinate(this.coordinate.x, this.coordinate.y-1) == null) {
-            moves.push(createVector(this.coordinate.x, this.coordinate.y-1));
+        for(let vector of this.parsed) {
+            if(board.getPieceFromCoordinate(this.coordinate.x + vector.x, this.coordinate.y + vector.y) == null) {
+                let move = createVector(this.coordinate.x + vector.x, this.coordinate.y + vector.y);
+                moves.push(move);
+            }
         }
         
         return moves;
+    }
+
+    parsePattern() {
+        let parsed = [];
+        for(let i = 0; i < 3; i++) {
+            for(let j = 0; j < 3; j++) {
+                if(this.pattern[i][j] == 'X') {
+                    let x = map(j, 0, 2, -1, 1);
+                    let y = map(i, 0, 2, -1, 1);
+
+                    let vector = createVector(x, y);
+                    parsed.push(vector);
+                }
+            }
+        }
+
+        return parsed;
     }
 
 }
