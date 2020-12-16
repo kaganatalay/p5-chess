@@ -1,6 +1,7 @@
 class Board {
     constructor() {
         this.cell_size = width / 8;
+        this.pieces = [];
         this.position = [
             [],
             [],
@@ -11,6 +12,8 @@ class Board {
             [],
             []
         ];
+
+        this.pieces.push(new Pawn(0, 6));
     }
 
     start() {
@@ -35,6 +38,8 @@ class Board {
     }
 
     update() {
-
+        for(let piece of this.pieces) {
+            piece.start();
+        }
     }
 }

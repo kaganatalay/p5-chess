@@ -10,13 +10,12 @@ class Piece {
     }
 
     render() {
-        push();
-        image(this.figure, this.position.x, this.position.y);
-        pop();
+        image(this.figure, this.position.x, this.position.y, board.cell_size * 0.8, board.cell_size * 0.8);
     }
 
     update() {
-        this.position = this.coordinates.mult(board.cell_size);
+        this.position.x = this.coordinates.x * board.cell_size + board.cell_size/2;
+        this.position.y = this.coordinates.y * board.cell_size + board.cell_size/2;
     }
 
 }
