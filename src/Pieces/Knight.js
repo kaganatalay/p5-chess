@@ -1,6 +1,6 @@
 class Knight extends Piece {
-    constructor(cx, cy) {
-        super(cx, cy);
-        this.figure = figures.white.knight;
+    constructor(cx, cy, type) {
+        super(cx, cy, type);
+  
     }
 }

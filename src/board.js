@@ -13,7 +13,39 @@ class Board {
             []
         ];
 
-        this.pieces.push(new Pawn(0, 6));
+        // White
+        for(let i = 0; i < 8; i++) {
+            this.placePiece(Pawn, i, 6, 'white');
+        }
+
+        this.placePiece(Rook, 0, 7, 'white');
+        this.placePiece(Rook, 7, 7, 'white');
+
+        this.placePiece(Knight, 1, 7, 'white');
+        this.placePiece(Knight, 6, 7, 'white');
+
+        this.placePiece(Bishop, 2, 7, 'white');
+        this.placePiece(Bishop, 5, 7, 'white');
+
+        this.placePiece(Queen, 3, 7, 'white');
+        this.placePiece(King, 4, 7, 'white');
+        
+        // Black
+        for(let i = 0; i < 8; i++) {
+            this.placePiece(Pawn, i, 1, 'black');
+        }
+
+        this.placePiece(Rook, 0, 0, 'black');
+        this.placePiece(Rook, 7, 0, 'black');
+
+        this.placePiece(Knight, 1, 0, 'black');
+        this.placePiece(Knight, 6, 0, 'black');
+
+        this.placePiece(Bishop, 2, 0, 'black');
+        this.placePiece(Bishop, 5, 0, 'black');
+
+        this.placePiece(Queen, 3, 0, 'black');
+        this.placePiece(King, 4, 0, 'black');
     }
 
     start() {
@@ -41,5 +73,11 @@ class Board {
         for(let piece of this.pieces) {
             piece.start();
         }
+    }
+
+    placePiece(Name, cx, cy, type) {
+        let piece = new Name(cx, cy, type);
+        piece.figure = figures[piece.type][Name.name.toLowerCase()];
+        this.pieces.push(piece);
     }
 }

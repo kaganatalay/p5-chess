@@ -1,6 +1,6 @@
 class Pawn extends Piece {
-    constructor(cx, cy) {
-        super(cx, cy);
-        this.figure = figures.white.pawn;
+    constructor(cx, cy, type) {
+        super(cx, cy, type);
+
     }
 }

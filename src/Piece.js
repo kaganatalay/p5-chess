@@ -1,7 +1,10 @@
 class Piece {
-    constructor(cx, cy) {
+    constructor(cx, cy, type) {
         this.coordinates = createVector(cx, cy);
         this.position = createVector();
+
+        this.type = type;
+        this.figure = null;
     }
 
     start() {
